@@ -6,6 +6,7 @@
 //
 
 #import "TicketTableViewCell.h"
+#import <Kingfisher/Kingfisher-Swift.h>
 
 @interface TicketTableViewCell ()
 @property (nonatomic, strong) UIImageView *airlineLogoView;
@@ -74,6 +75,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"dd MMMM yyyy hh:mm";
     _dateLabel.text = [dateFormatter stringFromDate:ticket.departure];
+    
 }
 
 @end
