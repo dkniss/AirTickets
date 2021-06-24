@@ -37,6 +37,8 @@ typedef struct SearchRequest {
 
 -(void) loadData;
 
+-(City *)cityForIATA:(NSString *)iata;
+
 @end
 
 NS_ASSUME_NONNULL_END

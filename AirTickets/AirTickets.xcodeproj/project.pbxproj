@@ -21,6 +21,10 @@
 		4DB587D72684B122005CC484 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DB587D42684B122005CC484 /* countries.json */; };
 		4DB587D82684B122005CC484 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DB587D52684B122005CC484 /* cities.json */; };
 		4DB587D92684B122005CC484 /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DB587D62684B122005CC484 /* airports.json */; };
+		4DB587DF2684B2FA005CC484 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB587DE2684B2FA005CC484 /* APIManager.m */; };
+		4DB587E32684BA14005CC484 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB587E22684BA14005CC484 /* Ticket.m */; };
+		4DB587E82684BE29005CC484 /* TicketTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB587E72684BE29005CC484 /* TicketTableViewCell.m */; };
+		4DB587EC2684BF44005CC484 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB587EB2684BF44005CC484 /* TicketsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,14 @@
 		4DB587D42684B122005CC484 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		4DB587D52684B122005CC484 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		4DB587D62684B122005CC484 /* airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = airports.json; sourceTree = "<group>"; };
+		4DB587DD2684B2FA005CC484 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		4DB587DE2684B2FA005CC484 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		4DB587E12684BA14005CC484 /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		4DB587E22684BA14005CC484 /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
+		4DB587E62684BE29005CC484 /* TicketTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketTableViewCell.h; sourceTree = "<group>"; };
+		4DB587E72684BE29005CC484 /* TicketTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketTableViewCell.m; sourceTree = "<group>"; };
+		4DB587EA2684BF44005CC484 /* TicketsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketsViewController.h; sourceTree = "<group>"; };
+		4DB587EB2684BF44005CC484 /* TicketsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +117,8 @@
 				4DB587BB2684AE54005CC484 /* City.m */,
 				4DB587BE2684AE5F005CC484 /* Airport.h */,
 				4DB587BF2684AE5F005CC484 /* Airport.m */,
+				4DB587E12684BA14005CC484 /* Ticket.h */,
+				4DB587E22684BA14005CC484 /* Ticket.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -112,10 +126,13 @@
 		4DB587C22684AF10005CC484 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4DB587E52684BE01005CC484 /* Cells */,
 				4DB587C32684AF39005CC484 /* MainViewController.h */,
 				4DB587C42684AF39005CC484 /* MainViewController.m */,
 				4DB587C82684AF67005CC484 /* PlaceViewController.h */,
 				4DB587C92684AF67005CC484 /* PlaceViewController.m */,
+				4DB587EA2684BF44005CC484 /* TicketsViewController.h */,
+				4DB587EB2684BF44005CC484 /* TicketsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -125,6 +142,8 @@
 			children = (
 				4DB587CD2684B0B2005CC484 /* DataManager.h */,
 				4DB587CE2684B0B2005CC484 /* DataManager.m */,
+				4DB587DD2684B2FA005CC484 /* APIManager.h */,
+				4DB587DE2684B2FA005CC484 /* APIManager.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -137,6 +156,15 @@
 				4DB587D62684B122005CC484 /* airports.json */,
 			);
 			path = JSONs;
+			sourceTree = "<group>";
+		};
+		4DB587E52684BE01005CC484 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4DB587E62684BE29005CC484 /* TicketTableViewCell.h */,
+				4DB587E72684BE29005CC484 /* TicketTableViewCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,12 +239,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DB587BC2684AE54005CC484 /* City.m in Sources */,
+				4DB587EC2684BF44005CC484 /* TicketsViewController.m in Sources */,
 				4DB587B72684AE48005CC484 /* Country.m in Sources */,
 				4DB587992684AD95005CC484 /* AppDelegate.m in Sources */,
+				4DB587E82684BE29005CC484 /* TicketTableViewCell.m in Sources */,
 				4DB587C02684AE5F005CC484 /* Airport.m in Sources */,
+				4DB587DF2684B2FA005CC484 /* APIManager.m in Sources */,
 				4DB587CA2684AF67005CC484 /* PlaceViewController.m in Sources */,
 				4DB587C52684AF39005CC484 /* MainViewController.m in Sources */,
 				4DB587AA2684AD96005CC484 /* main.m in Sources */,
+				4DB587E32684BA14005CC484 /* Ticket.m in Sources */,
 				4DB587CF2684B0B2005CC484 /* DataManager.m in Sources */,
 				4DB5879C2684AD95005CC484 /* SceneDelegate.m in Sources */,
 			);
