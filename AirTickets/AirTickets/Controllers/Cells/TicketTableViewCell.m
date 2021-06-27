@@ -79,7 +79,6 @@
     _dateLabel.text = [dateFormatter stringFromDate:ticket.departure];
     NSURL *logoUrl = AirlineLogo(ticket.airline);
     [_airlineLogoView sd_setImageWithURL:logoUrl];
-    
 }
 
 @end

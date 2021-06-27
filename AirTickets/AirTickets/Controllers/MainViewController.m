@@ -27,7 +27,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.prefersLargeTitles = YES;
-    self.title = @"Поиск";
+    self.title = @"Поиск авиабилетов";
     
     [self createButtons];
 
