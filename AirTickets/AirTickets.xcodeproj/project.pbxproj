@@ -27,6 +27,7 @@
 		4DB587EC2684BF44005CC484 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB587EB2684BF44005CC484 /* TicketsViewController.m */; };
 		4DC2879A26884B3300DA7115 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC2879926884B3300DA7115 /* LocationService.m */; };
 		4DC287A226884FC000DA7115 /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287A126884FC000DA7115 /* MapPrice.m */; };
+		4DC287A72688560D00DA7115 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287A62688560D00DA7115 /* MapViewController.m */; };
 		FA2806AE2242ADFD417365D2 /* Pods_AirTickets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB46B862DF3888DD5E3A947 /* Pods_AirTickets.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,8 @@
 		4DC2879926884B3300DA7115 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
 		4DC287A026884FC000DA7115 /* MapPrice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapPrice.h; sourceTree = "<group>"; };
 		4DC287A126884FC000DA7115 /* MapPrice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPrice.m; sourceTree = "<group>"; };
+		4DC287A52688560D00DA7115 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		4DC287A62688560D00DA7115 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		56D5207DA264797BA8EA8E1B /* Pods-AirTickets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirTickets.debug.xcconfig"; path = "Target Support Files/Pods-AirTickets/Pods-AirTickets.debug.xcconfig"; sourceTree = "<group>"; };
 		8F975E02A7ABC8A81C05D57F /* Pods-AirTickets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirTickets.release.xcconfig"; path = "Target Support Files/Pods-AirTickets/Pods-AirTickets.release.xcconfig"; sourceTree = "<group>"; };
 		CEB46B862DF3888DD5E3A947 /* Pods_AirTickets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirTickets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +159,8 @@
 				4DB587C92684AF67005CC484 /* PlaceViewController.m */,
 				4DB587EA2684BF44005CC484 /* TicketsViewController.h */,
 				4DB587EB2684BF44005CC484 /* TicketsViewController.m */,
+				4DC287A52688560D00DA7115 /* MapViewController.h */,
+				4DC287A62688560D00DA7115 /* MapViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				4DB587C52684AF39005CC484 /* MainViewController.m in Sources */,
 				4DC287A226884FC000DA7115 /* MapPrice.m in Sources */,
 				4DB587AA2684AD96005CC484 /* main.m in Sources */,
+				4DC287A72688560D00DA7115 /* MapViewController.m in Sources */,
 				4DB587E32684BA14005CC484 /* Ticket.m in Sources */,
 				4DB587CF2684B0B2005CC484 /* DataManager.m in Sources */,
 				4DC2879A26884B3300DA7115 /* LocationService.m in Sources */,
