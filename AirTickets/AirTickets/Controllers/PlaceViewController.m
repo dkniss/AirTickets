@@ -15,6 +15,8 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) NSArray *currentArray;
+@property (nonatomic, strong) NSArray *searchArray;
+@property (nonatomic, strong) UISearchController *searchController;
 
 @end
 
@@ -32,6 +34,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
     
+    [self createSearchController];
     [self createTableView];
     [self createSegmentedControl];
     [self changeSource];
@@ -57,7 +60,19 @@
     _segmentedControl.tintColor = [UIColor grayColor];
     self.navigationItem.titleView = _segmentedControl;
     _segmentedControl.selectedSegmentIndex = 0;
+}
+
+- (void)createSearchController {
+    _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    _searchController.obscuresBackgroundDuringPresentation = NO;
+    _searchController.searchResultsUpdater = self;
+    _searchArray = [NSArray new];
     
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.searchController = _searchController;
+    } else {
+        _tableView.tableHeaderView = _searchController.searchBar;
+    }
 }
 
 - (void)changeSource {
@@ -75,6 +90,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (_searchController.isActive && [_searchArray count] > 0) {
+        return [_searchArray count];
+    }
     return  [_currentArray count];
 }
 
@@ -87,12 +105,12 @@
     }
     
     if (_segmentedControl.selectedSegmentIndex == 0) {
-        City *city = [_currentArray objectAtIndex:indexPath.row];
+        City *city = (_searchController.isActive && [_searchArray count] > 0) ? [_searchArray objectAtIndex:indexPath.row] : [_currentArray objectAtIndex:indexPath.row];
         cell.textLabel.text = city.name;
         cell.detailTextLabel.text = city.code;
     }
     else if (_segmentedControl.selectedSegmentIndex == 1) {
-        Airport *airport = [_currentArray objectAtIndex:indexPath.row];
+        Airport *airport = (_searchController.isActive && [_searchArray count] > 0) ? [_searchArray objectAtIndex:indexPath.row] : [_currentArray objectAtIndex:indexPath.row];
         cell.textLabel.text = airport.name;
         cell.detailTextLabel.text = airport.code;
     }
@@ -102,9 +120,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DataSourceType dataType = ((int) _segmentedControl.selectedSegmentIndex) + 1;
-    [self.delegate selectPlace:[_currentArray objectAtIndex:indexPath.row] withType:_placeType andDataType:dataType];
+    if (_searchController.isActive && [_searchArray count] > 0) {
+        [self.delegate selectPlace:[_searchArray objectAtIndex:indexPath.row] withType:_placeType andDataType:dataType];
+    } else {
+        [self.delegate selectPlace:[_currentArray objectAtIndex:indexPath.row] withType:_placeType andDataType:dataType];
+    }
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    if (searchController.searchBar.text) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains [cd] %@",searchController.searchBar.text];
+        _searchArray = [_currentArray filteredArrayUsingPredicate:predicate];
+        [_tableView reloadData];
+    }
+}
 
 @end
