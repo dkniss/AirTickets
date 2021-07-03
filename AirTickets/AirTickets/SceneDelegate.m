@@ -21,8 +21,16 @@
     self.window = [[UIWindow alloc] initWithFrame:windowFrame];
     [self.window makeKeyAndVisible];
     
-    MapViewController *mainViewController = [MapViewController new];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    MapViewController *mapViewController = [MapViewController new];
+    MainViewController *mainViewController = [MainViewController new];
+    UITabBarController *tabBarController = [UITabBarController new];
+    UITabBarItem *item1 = [[UITabBarItem alloc] initWithTitle:@"Поиск" image:[UIImage systemImageNamed:@"ticket.fill"]  tag:0];
+    UITabBarItem *item2 = [[UITabBarItem alloc] initWithTitle:@"Карта" image:[UIImage systemImageNamed:@"map.fill"]  tag:1];
+    mainViewController.tabBarItem  = item1;
+    mapViewController.tabBarItem = item2;
+    NSArray *viewControllers = [NSArray arrayWithObjects:mainViewController, mapViewController, nil];
+    [tabBarController setViewControllers:viewControllers];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
     
     self.window.rootViewController = navigationController;
     UIWindowScene *windowScene = (UIWindowScene *)scene;
