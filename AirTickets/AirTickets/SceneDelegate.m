@@ -8,6 +8,7 @@
 #import "SceneDelegate.h"
 #import "MainViewController.h"
 #import "MapViewController.h"
+#import "TabBarController.h"
 
 @interface SceneDelegate ()
 
@@ -17,22 +18,14 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
+    
     CGRect windowFrame = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:windowFrame];
     [self.window makeKeyAndVisible];
     
-    MapViewController *mapViewController = [MapViewController new];
-    MainViewController *mainViewController = [MainViewController new];
-    UITabBarController *tabBarController = [UITabBarController new];
-    UITabBarItem *item1 = [[UITabBarItem alloc] initWithTitle:@"Поиск" image:[UIImage systemImageNamed:@"ticket.fill"]  tag:0];
-    UITabBarItem *item2 = [[UITabBarItem alloc] initWithTitle:@"Карта" image:[UIImage systemImageNamed:@"map.fill"]  tag:1];
-    mainViewController.tabBarItem  = item1;
-    mapViewController.tabBarItem = item2;
-    NSArray *viewControllers = [NSArray arrayWithObjects:mainViewController, mapViewController, nil];
-    [tabBarController setViewControllers:viewControllers];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+    TabBarController *tabBarController = [TabBarController new];
     
-    self.window.rootViewController = navigationController;
+    self.window.rootViewController = tabBarController;
     UIWindowScene *windowScene = (UIWindowScene *)scene;
     [self.window setWindowScene:windowScene];
 }
