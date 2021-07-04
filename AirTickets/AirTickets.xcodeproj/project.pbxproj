@@ -32,6 +32,7 @@
 		4DC287C826919D8E00DA7115 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287C626919D8E00DA7115 /* DataModel.xcdatamodeld */; };
 		4DC287CE2691A14400DA7115 /* FavouriteTicket+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287CC2691A14400DA7115 /* FavouriteTicket+CoreDataClass.m */; };
 		4DC287CF2691A14400DA7115 /* FavouriteTicket+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287CD2691A14400DA7115 /* FavouriteTicket+CoreDataProperties.m */; };
+		4DC287D32691A19A00DA7115 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287D22691A19A00DA7115 /* CoreDataHelper.m */; };
 		FA2806AE2242ADFD417365D2 /* Pods_AirTickets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB46B862DF3888DD5E3A947 /* Pods_AirTickets.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,8 @@
 		4DC287CB2691A14400DA7115 /* FavouriteTicket+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavouriteTicket+CoreDataClass.h"; sourceTree = SOURCE_ROOT; };
 		4DC287CC2691A14400DA7115 /* FavouriteTicket+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavouriteTicket+CoreDataClass.m"; sourceTree = SOURCE_ROOT; };
 		4DC287CD2691A14400DA7115 /* FavouriteTicket+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavouriteTicket+CoreDataProperties.m"; sourceTree = SOURCE_ROOT; };
+		4DC287D12691A19A00DA7115 /* CoreDataHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		4DC287D22691A19A00DA7115 /* CoreDataHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		56D5207DA264797BA8EA8E1B /* Pods-AirTickets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirTickets.debug.xcconfig"; path = "Target Support Files/Pods-AirTickets/Pods-AirTickets.debug.xcconfig"; sourceTree = "<group>"; };
 		8F975E02A7ABC8A81C05D57F /* Pods-AirTickets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirTickets.release.xcconfig"; path = "Target Support Files/Pods-AirTickets/Pods-AirTickets.release.xcconfig"; sourceTree = "<group>"; };
 		CEB46B862DF3888DD5E3A947 /* Pods_AirTickets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirTickets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +222,8 @@
 				4DC287CC2691A14400DA7115 /* FavouriteTicket+CoreDataClass.m */,
 				4DC287CD2691A14400DA7115 /* FavouriteTicket+CoreDataProperties.m */,
 				4DC287C626919D8E00DA7115 /* DataModel.xcdatamodeld */,
+				4DC287D12691A19A00DA7115 /* CoreDataHelper.h */,
+				4DC287D22691A19A00DA7115 /* CoreDataHelper.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				4DB587992684AD95005CC484 /* AppDelegate.m in Sources */,
 				4DB587E82684BE29005CC484 /* TicketTableViewCell.m in Sources */,
 				4DB587C02684AE5F005CC484 /* Airport.m in Sources */,
+				4DC287D32691A19A00DA7115 /* CoreDataHelper.m in Sources */,
 				4DB587DF2684B2FA005CC484 /* APIManager.m in Sources */,
 				4DB587CA2684AF67005CC484 /* PlaceViewController.m in Sources */,
 				4DB587C52684AF39005CC484 /* MainViewController.m in Sources */,
