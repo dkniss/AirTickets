@@ -13,6 +13,7 @@
 
 @interface TicketsViewController ()
 @property (nonatomic, strong) NSArray *tickets;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @end
 
 @implementation TicketsViewController {
@@ -56,8 +57,9 @@
     if (isFavourites) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Сортировать" style:UIBarButtonItemStyleDone target:self action:@selector(sortTickets)];
         self.navigationController.navigationBar.prefersLargeTitles = YES;
-        _tickets = [[CoreDataHelper sharedInstance] favourites];
-        [self.tableView reloadData];
+        
+        [self createSegmentedControl];
+        [self changeSource];
     }
 }
 
@@ -116,6 +118,28 @@
         self.navigationItem.rightBarButtonItem.title = @"По убыванию";
     }
     
+    [self.tableView reloadData];
+}
+
+- (void)createSegmentedControl {
+    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Поиск",@"Карта"]];
+    [_segmentedControl addTarget:self action:@selector(changeSource) forControlEvents:UIControlEventValueChanged];
+    _segmentedControl.tintColor = [UIColor grayColor];
+    self.navigationItem.titleView = _segmentedControl;
+    _segmentedControl.selectedSegmentIndex = 0;
+}
+
+- (void)changeSource {
+    switch (_segmentedControl.selectedSegmentIndex) {
+        case 0:
+            _tickets = [[CoreDataHelper sharedInstance] favourites];
+            break;
+        case 1:
+            _tickets = nil;
+            break;
+        default:
+            break;
+    }
     [self.tableView reloadData];
 }
 
