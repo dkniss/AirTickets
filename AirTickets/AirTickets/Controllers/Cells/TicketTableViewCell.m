@@ -76,6 +76,8 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"dd MMMM yyyy hh:mm";
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru_RU"];
+    [dateFormatter setLocale:locale];
     _dateLabel.text = [dateFormatter stringFromDate:ticket.departure];
     NSURL *logoUrl = AirlineLogo(ticket.airline);
     [_airlineLogoView sd_setImageWithURL:logoUrl];

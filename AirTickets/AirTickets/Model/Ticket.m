@@ -26,8 +26,6 @@ NSDate *dateFromString(NSString *dateString) {
     if (!dateString) { return  nil; }
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
-    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru_RU"];
-    [dateFormatter setLocale:locale];
     return [dateFormatter dateFromString: dateString];
 }
 
