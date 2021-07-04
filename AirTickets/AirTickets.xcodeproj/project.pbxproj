@@ -29,6 +29,7 @@
 		4DC287A226884FC000DA7115 /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287A126884FC000DA7115 /* MapPrice.m */; };
 		4DC287A72688560D00DA7115 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287A62688560D00DA7115 /* MapViewController.m */; };
 		4DC287B026908E7500DA7115 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287AF26908E7500DA7115 /* TabBarController.m */; };
+		4DC287C826919D8E00DA7115 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287C626919D8E00DA7115 /* DataModel.xcdatamodeld */; };
 		FA2806AE2242ADFD417365D2 /* Pods_AirTickets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB46B862DF3888DD5E3A947 /* Pods_AirTickets.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		4DC287A62688560D00DA7115 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		4DC287AE26908E7500DA7115 /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		4DC287AF26908E7500DA7115 /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		4DC287C726919D8E00DA7115 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		56D5207DA264797BA8EA8E1B /* Pods-AirTickets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirTickets.debug.xcconfig"; path = "Target Support Files/Pods-AirTickets/Pods-AirTickets.debug.xcconfig"; sourceTree = "<group>"; };
 		8F975E02A7ABC8A81C05D57F /* Pods-AirTickets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirTickets.release.xcconfig"; path = "Target Support Files/Pods-AirTickets/Pods-AirTickets.release.xcconfig"; sourceTree = "<group>"; };
 		CEB46B862DF3888DD5E3A947 /* Pods_AirTickets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirTickets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 		4DB587962684AD95005CC484 /* AirTickets */ = {
 			isa = PBXGroup;
 			children = (
+				4DC287BF26919D3800DA7115 /* CoreData */,
 				4DB587D32684B122005CC484 /* JSONs */,
 				4DB587CC2684B090005CC484 /* Services */,
 				4DB587C22684AF10005CC484 /* Controllers */,
@@ -200,6 +203,14 @@
 				4DB587E72684BE29005CC484 /* TicketTableViewCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		4DC287BF26919D3800DA7115 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4DC287C626919D8E00DA7115 /* DataModel.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		761A9ECBEE2388BB8598D4F8 /* Pods */ = {
@@ -341,6 +352,7 @@
 				4DB587E32684BA14005CC484 /* Ticket.m in Sources */,
 				4DB587CF2684B0B2005CC484 /* DataManager.m in Sources */,
 				4DC287B026908E7500DA7115 /* TabBarController.m in Sources */,
+				4DC287C826919D8E00DA7115 /* DataModel.xcdatamodeld in Sources */,
 				4DC2879A26884B3300DA7115 /* LocationService.m in Sources */,
 				4DB5879C2684AD95005CC484 /* SceneDelegate.m in Sources */,
 			);
@@ -534,6 +546,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4DC287C626919D8E00DA7115 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4DC287C726919D8E00DA7115 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 4DC287C726919D8E00DA7115 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4DB5878C2684AD95005CC484 /* Project object */;
 }
