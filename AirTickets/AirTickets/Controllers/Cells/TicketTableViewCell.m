@@ -79,8 +79,24 @@
     NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru_RU"];
     [dateFormatter setLocale:locale];
     _dateLabel.text = [dateFormatter stringFromDate:ticket.departure];
-    NSURL *logoUrl = AirlineLogo(ticket.airline);
-    [_airlineLogoView sd_setImageWithURL:logoUrl];
+    NSURL *logoURL = AirlineLogo(ticket.airline);
+    [_airlineLogoView sd_setImageWithURL:logoURL];
 }
+
+- (void)setFavouriteTicket:(FavouriteTicket *)favouriteTicket {
+    _favouriteTicket = favouriteTicket;
+    
+    _priceLabel.text = [NSString stringWithFormat:@"%lld руб.", favouriteTicket.price];
+    _placesLabel.text = [NSString stringWithFormat:@"%@ - %@", favouriteTicket.from, favouriteTicket.to];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"dd MMMM yyyy hh:mm";
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru_RU"];
+    [dateFormatter setLocale:locale];
+    _dateLabel.text = [dateFormatter stringFromDate:favouriteTicket.departure];
+    NSURL *logoURL = AirlineLogo(favouriteTicket.airline);
+    [_airlineLogoView sd_setImageWithURL:logoURL];
+}
+
 
 @end
