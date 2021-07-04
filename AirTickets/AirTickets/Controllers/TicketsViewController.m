@@ -55,7 +55,7 @@
     [super viewDidAppear:animated];
     
     if (isFavourites) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Сортировать" style:UIBarButtonItemStyleDone target:self action:@selector(sortTickets)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"arrow.up.arrow.down.circle"] style:UIBarButtonItemStyleDone target:self action:@selector(sortTickets)];
         self.navigationController.navigationBar.prefersLargeTitles = YES;
         
         [self createSegmentedControl];
@@ -106,6 +106,7 @@
 }
 
 - (void)sortTickets {
+    //Сортировка по цене
     NSSortDescriptor *sortDescriptor;
     sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"price"
                                                  ascending:sortedByAscending];
@@ -113,9 +114,9 @@
     sortedByAscending = !sortedByAscending;
     
     if (sortedByAscending) {
-        self.navigationItem.rightBarButtonItem.title = @"По возрастанию";
+        self.navigationItem.rightBarButtonItem.image = [UIImage systemImageNamed:@"arrow.up.arrow.down.circle.fill"];
     } else {
-        self.navigationItem.rightBarButtonItem.title = @"По убыванию";
+        self.navigationItem.rightBarButtonItem.image = [UIImage systemImageNamed:@"arrow.up.arrow.down.circle"];
     }
     
     [self.tableView reloadData];
