@@ -1,22 +1,18 @@
 PODS:
-  - Kingfisher (6.2.1)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
 
 DEPENDENCIES:
-  - Kingfisher (~> 6.2.1)
   - SDWebImage
 
 SPEC REPOS:
   trunk:
-    - Kingfisher
     - SDWebImage
 
 SPEC CHECKSUMS:
-  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: 0ff67b304b47d6712437bcbd3ae593f8a80b636d
+PODFILE CHECKSUM: de4b7f61eb8d746cac2367900b3b9bf85d8db63e
 
 COCOAPODS: 1.10.1
