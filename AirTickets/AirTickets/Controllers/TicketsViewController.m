@@ -17,6 +17,7 @@
 
 @implementation TicketsViewController {
     BOOL isFavourites;
+    BOOL sortedByAscending;
 }
 
 - (instancetype)initWithTickets:(NSArray *)tickets {
@@ -35,6 +36,7 @@
     self = [super init];
     if (self) {
         isFavourites = YES;
+        sortedByAscending = NO;
         self.tickets = [NSArray new];
         self.title = @"Избранное";
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -45,12 +47,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     if (isFavourites) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Сортировать" style:UIBarButtonItemStyleDone target:self action:@selector(sortTickets)];
         self.navigationController.navigationBar.prefersLargeTitles = YES;
         _tickets = [[CoreDataHelper sharedInstance] favourites];
         [self.tableView reloadData];
@@ -97,6 +101,22 @@
     [alertController addAction:favouriteAction];
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)sortTickets {
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"price"
+                                                 ascending:sortedByAscending];
+    _tickets = [_tickets sortedArrayUsingDescriptors:@[sortDescriptor]];
+    sortedByAscending = !sortedByAscending;
+    
+    if (sortedByAscending) {
+        self.navigationItem.rightBarButtonItem.title = @"По возрастанию";
+    } else {
+        self.navigationItem.rightBarButtonItem.title = @"По убыванию";
+    }
+    
+    [self.tableView reloadData];
 }
 
 @end
