@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Ticket : NSObject
 
-@property (nonatomic, strong) NSNumber *price;
+@property (nonatomic) NSInteger price;
 @property (nonatomic, strong) NSString *airline;
 @property (nonatomic, strong) NSDate *departure;
 @property (nonatomic, strong) NSDate *expires;

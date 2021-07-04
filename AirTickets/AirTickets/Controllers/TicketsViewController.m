@@ -48,7 +48,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -88,13 +87,13 @@
     if (isFavourites) return;
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Действия с билетом" message:@"Что необходимо сделать с выбранным билетом?" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *favouriteAction;
-    if ([[CoreDataHelper sharedInstance] isFavourite:[_tickets objectAtIndex:indexPath.row]]) {
+    if ([[CoreDataHelper sharedInstance] isFavouriteTicket:[_tickets objectAtIndex:indexPath.row]]) {
         favouriteAction = [UIAlertAction actionWithTitle:@"Удалить из избранного" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            [[CoreDataHelper sharedInstance] removeFromFavourite:[self->_tickets objectAtIndex:indexPath.row]];
+            [[CoreDataHelper sharedInstance] removeTicketFromFavourite:[self->_tickets objectAtIndex:indexPath.row]];
         }];
     } else {
         favouriteAction = [UIAlertAction actionWithTitle:@"Добавить в избранное" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [[CoreDataHelper sharedInstance] addToFavourite:[self->_tickets objectAtIndex:indexPath.row]];
+            [[CoreDataHelper sharedInstance] addTicketToFavourite:[self->_tickets objectAtIndex:indexPath.row]];
         }];
         
     }
@@ -133,15 +132,32 @@
 - (void)changeSource {
     switch (_segmentedControl.selectedSegmentIndex) {
         case 0:
-            _tickets = [[CoreDataHelper sharedInstance] favourites];
+            _tickets = [[CoreDataHelper sharedInstance] favouriteTickets];
             break;
         case 1:
-            _tickets = nil;
+            _tickets = [self ticketsFromMapPrices];
             break;
         default:
             break;
     }
     [self.tableView reloadData];
+}
+
+-(NSArray *)ticketsFromMapPrices {
+    NSMutableArray *tickets = [NSMutableArray new];
+    NSArray *favouritePrices = [[CoreDataHelper sharedInstance] favouriteMapPrices];
+    
+    for (FavouriteMapPrice *price in favouritePrices) {
+        Ticket *ticket = [Ticket new];
+        ticket.from = price.origin;
+        ticket.to = price.destination;
+        ticket.departure = price.departure;
+        ticket.returnDate = price.returnDate;
+        ticket.price = price.value;
+        [tickets addObject:ticket];
+    }
+    
+    return tickets;
 }
 
 @end

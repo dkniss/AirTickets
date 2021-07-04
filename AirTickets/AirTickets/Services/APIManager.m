@@ -54,13 +54,13 @@
     [self load:urlString withCompletion:^(id  _Nullable result) {
         NSDictionary *response = result;
         if (response) {
-            NSDictionary *json = [[response valueForKey:@"data"] valueForKey:request.destionation];
+            NSDictionary *json = [[response valueForKey:@"data"] valueForKey:request.destination];
             NSMutableArray *array = [NSMutableArray new];
             for (NSString *key in json) {
                 NSDictionary *value = [json valueForKey: key];
                 Ticket *ticket = [[Ticket alloc] initWithDictionary:value];
                 ticket.from = request.origin;
-                ticket.to = request.destionation;
+                ticket.to = request.destination;
                 [array addObject:ticket];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -71,7 +71,7 @@
 }
 
 NSString * SearchRequestQuery(SearchRequest request) {
-    NSString *result = [NSString stringWithFormat:@"origin=%@&destination=%@", request.origin, request.destionation];
+    NSString *result = [NSString stringWithFormat:@"origin=%@&destination=%@", request.origin, request.destination];
     if (request.departDate && request.returnDate) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.dateFormat = @"yyyy-MM";

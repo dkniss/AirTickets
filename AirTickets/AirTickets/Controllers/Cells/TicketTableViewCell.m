@@ -64,14 +64,14 @@
     self.contentView.frame = CGRectMake(10.0, 10.0, [UIScreen mainScreen].bounds.size.width - 20.0, self.frame.size.height - 20.0);
     _priceLabel.frame = CGRectMake(10.0, 10.0, self.contentView.frame.size.width - 110.0, 40.0);
     _airlineLogoView.frame = CGRectMake(CGRectGetMaxX(_priceLabel.frame) + 10.0, 10.0, 80.0, 80.0);
-    _placesLabel.frame = CGRectMake(10.0, CGRectGetMaxY(_priceLabel.frame) + 16.0, 100.0, 20.0);
+    _placesLabel.frame = CGRectMake(10.0, CGRectGetMaxY(_priceLabel.frame) + 16.0, 200.0, 20.0);
     _dateLabel.frame = CGRectMake(10.0, CGRectGetMaxY(_placesLabel.frame) + 8.0, self.contentView.frame.size.width - 20.0, 20.0);
 }
 
 - (void)setTicket:(Ticket *)ticket {
     _ticket = ticket;
     
-    _priceLabel.text = [NSString stringWithFormat:@"%@ руб.", ticket.price];
+    _priceLabel.text = [NSString stringWithFormat:@"%ld руб.", (long)ticket.price];
     _placesLabel.text = [NSString stringWithFormat:@"%@ - %@", ticket.from, ticket.to];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

@@ -68,7 +68,7 @@
     if (placeType == PlaceTypeDeparture) {
         _searchRequest.origin = iata;
     } else {
-        _searchRequest.destionation = iata;
+        _searchRequest.destination = iata;
     }
     
     [button setTitle:title forState:UIControlStateNormal];

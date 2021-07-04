@@ -9,7 +9,9 @@
 #import <CoreData/CoreData.h>
 #import "DataManager.h"
 #import "Ticket.h"
+#import "MapPrice.h"
 #import "FavouriteTicket+CoreDataClass.h"
+#import "FavouriteMapPrice+CoreDataClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,10 +19,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedInstance;
 
-- (BOOL)isFavourite:(Ticket *)ticket;
-- (NSArray *)favourites;
-- (void)addToFavourite:(Ticket *)ticket;
-- (void)removeFromFavourite:(Ticket *)ticket;
+- (BOOL)isFavouriteTicket:(Ticket *)ticket;
+- (NSArray *)favouriteTickets;
+- (void)addTicketToFavourite:(Ticket *)ticket;
+- (void)removeTicketFromFavourite:(Ticket *)ticket;
+
+- (BOOL)isFavouriteMapPrice:(MapPrice *)mapPrice;
+- (NSArray *)favouriteMapPrices;
+- (void)addMapPriceToFavourite:(MapPrice *)mapPrice;
+- (void)removeMapPriceFromFavourite:(MapPrice *)mapPrice;
 
 @end
 

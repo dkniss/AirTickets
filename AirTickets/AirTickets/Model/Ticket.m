@@ -16,7 +16,7 @@
         _expires = dateFromString([dictionary valueForKey:@"expires_at"]);
         _departure = dateFromString([dictionary valueForKey:@"departure_at"]);
         _flightNumber = [dictionary valueForKey:@"flight_number"];
-        _price = [dictionary valueForKey:@"price"];
+        _price = [[dictionary valueForKey:@"price"] integerValue];
         _returnDate = dateFromString([dictionary valueForKey:@"return_at"]);
     }
     return self;

@@ -10,8 +10,8 @@
 #import "APIManager.h"
 #import "DataManager.h"
 #import "MapPrice.h"
-#import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "CoreDataHelper.h"
 
 @interface MapViewController ()
 
@@ -30,13 +30,13 @@
     
     _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     _mapView.showsUserLocation = YES;
+    _mapView.delegate = self;
     [self.view addSubview:_mapView];
     
     [[DataManager sharedInstance] loadData];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataLoadedSuccessfully) name:kDataManagerLoadDataDidComplete object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCurrentLocation:) name:kLocationServiceDidUpdateCurrentLocation object:nil];
-
 }
 
 - (void)dealloc {
@@ -50,7 +50,7 @@
 - (void)updateCurrentLocation:(NSNotification *)notification {
     CLLocation *currentLocation = notification.object;
     
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 100000, 100000);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 1000000, 1000000);
     [_mapView setRegion:region animated:YES];
     
     if (currentLocation) {
@@ -75,6 +75,36 @@
             annotation.coordinate = price.destination.coordinate;
             [self->_mapView addAnnotation:annotation];
         });
+    }
+}
+
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Действия с направлением" message:@"Что необходимо сделать с выбранным направлением?" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *favouriteAction;
+    MapPrice *selectedMapPrice;
+  
+    for (MapPrice *price in _prices) {
+        NSString *formatedPriceName = [NSString stringWithFormat:@"%@ (%@)", price.destination.name, price.destination.code];
+        if ([formatedPriceName isEqual:view.annotation.title]) {
+            selectedMapPrice = price;
+        }
+    }
+
+    if (selectedMapPrice) {
+        if ([[CoreDataHelper sharedInstance] isFavouriteMapPrice:selectedMapPrice]) {
+            favouriteAction = [UIAlertAction actionWithTitle:@"Удалить из избранного" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                [[CoreDataHelper sharedInstance] removeMapPriceFromFavourite:selectedMapPrice];
+            }];
+        } else {
+            favouriteAction = [UIAlertAction actionWithTitle:@"Добавить в избранное" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [[CoreDataHelper sharedInstance] addMapPriceToFavourite:selectedMapPrice];
+            }];
+        }
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:favouriteAction];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 

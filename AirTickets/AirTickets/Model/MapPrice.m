@@ -19,7 +19,7 @@
         _returnDate = [self dateFromString:[dictionary valueForKey:@"return_date"]];
         _numberOfChanges = [[dictionary valueForKey:@"number_of_changes"] integerValue];
         _value = [[dictionary valueForKey:@"value"] integerValue];
-        _distance = [[dictionary valueForKey:@"distanse"] integerValue];
+        _distance = [[dictionary valueForKey:@"distance"] integerValue];
         _actual = [[dictionary valueForKey:@"actual"] boolValue];
     }
     return self;

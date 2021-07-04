@@ -24,6 +24,6 @@
     </entity>
     <elements>
         <element name="FavouriteTicket" positionX="-54" positionY="-9" width="128" height="178"/>
-        <element name="FavouriteMapPrice" positionX="-9" positionY="108" width="128" height="28"/>
+        <element name="FavouriteMapPrice" positionX="-9" positionY="108" width="128" height="178"/>
     </elements>
 </model>
