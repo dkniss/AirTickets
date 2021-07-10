@@ -36,7 +36,7 @@
         
         _datePicker = [[UIDatePicker alloc] init];
         _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
-        _datePicker.preferredDatePickerStyle = UIDatePickerStyleInline;
+        _datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
         _datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru_RU"];
         _datePicker.timeZone = [NSTimeZone localTimeZone];
         
