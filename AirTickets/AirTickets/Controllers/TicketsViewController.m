@@ -32,6 +32,7 @@
         _tickets = tickets;
         self.title = @"Билеты";
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.tableView.backgroundColor = [UIColor systemBlueColor];
         [self.tableView registerClass:[TicketTableViewCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
         
         _datePicker = [[UIDatePicker alloc] init];
@@ -67,6 +68,7 @@
         self.tickets = [NSArray new];
         self.title = @"Избранное";
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.tableView.backgroundColor = [UIColor systemBlueColor];
         [self.tableView registerClass:[TicketTableViewCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
     }
     return self;
@@ -90,16 +92,26 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    return _tickets.count;
+//}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return _tickets.count;
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TicketTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TicketCellReuseIdentifier forIndexPath:indexPath];
     if (isFavourites) {
-        cell.favouriteTicket = [_tickets objectAtIndex:indexPath.row];
+        cell.favouriteTicket = [_tickets objectAtIndex:indexPath.section];
     } else {
-        cell.ticket = [_tickets objectAtIndex:indexPath.row];
+        cell.ticket = [_tickets objectAtIndex:indexPath.section];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -109,17 +121,28 @@
     return 140.0;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [UIView new];
+    [headerView setBackgroundColor:[UIColor clearColor]];
+    return headerView;
+    
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (isFavourites) return;
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Действия с билетом" message:@"Что необходимо сделать с выбранным билетом?" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *favouriteAction;
-    if ([[CoreDataHelper sharedInstance] isFavouriteTicket:[_tickets objectAtIndex:indexPath.row]]) {
+    if ([[CoreDataHelper sharedInstance] isFavouriteTicket:[_tickets objectAtIndex:indexPath.section]]) {
         favouriteAction = [UIAlertAction actionWithTitle:@"Удалить из избранного" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            [[CoreDataHelper sharedInstance] removeTicketFromFavourite:[self->_tickets objectAtIndex:indexPath.row]];
+            [[CoreDataHelper sharedInstance] removeTicketFromFavourite:[self->_tickets objectAtIndex:indexPath.section]];
         }];
     } else {
         favouriteAction = [UIAlertAction actionWithTitle:@"Добавить в избранное" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [[CoreDataHelper sharedInstance] addTicketToFavourite:[self->_tickets objectAtIndex:indexPath.row]];
+            [[CoreDataHelper sharedInstance] addTicketToFavourite:[self->_tickets objectAtIndex:indexPath.section]];
         }];
     }
     
