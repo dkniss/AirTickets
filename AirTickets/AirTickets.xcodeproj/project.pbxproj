@@ -161,6 +161,7 @@
 				4DB587A52684AD96005CC484 /* LaunchScreen.storyboard */,
 				4DB587A82684AD96005CC484 /* Info.plist */,
 				4DB587A92684AD96005CC484 /* main.m */,
+				4DD03065269A0BDC003307DB /* SupportingFiles */,
 			);
 			path = AirTickets;
 			sourceTree = "<group>";
@@ -288,6 +289,21 @@
 				4DC287FB2691E7D100DA7115 /* FavouriteMapPrice+CoreDataProperties.m */,
 			);
 			path = FavouriteMapPrice;
+			sourceTree = "<group>";
+		};
+		4DD03065269A0BDC003307DB /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4DD03066269A0BEE003307DB /* Images */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		4DD03066269A0BEE003307DB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		761A9ECBEE2388BB8598D4F8 /* Pods */ = {
