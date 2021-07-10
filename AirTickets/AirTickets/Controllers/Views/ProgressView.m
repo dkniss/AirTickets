@@ -32,7 +32,7 @@
 
 - (void)createPlanes {
     for (int i = 1; i < 6; i++) {
-        UIImageView *plane = [[UIImageView alloc] initWithFrame:CGRectMake(-50.0, ((float)i * 100.0) + 150.0, 50.0, 50.0)];
+        UIImageView *plane = [[UIImageView alloc] initWithFrame:CGRectMake(-50.0, ((float)i * 100.0) + 50.0, 50.0, 50.0)];
         plane.tag = i;
         plane.image = [UIImage imageNamed:@"plane"];
         [self addSubview:plane];
