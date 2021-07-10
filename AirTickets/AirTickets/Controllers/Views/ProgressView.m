@@ -18,7 +18,7 @@
     static ProgressView *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        UIWindow * currentwindow = [[UIApplication sharedApplication] keyWindow];
+        UIWindow * currentwindow = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
         instance = [[ProgressView alloc] initWithFrame: currentwindow.bounds];
         [instance setup];
     });
@@ -61,7 +61,8 @@
     self.alpha = 0.0;
     isActive = YES;
     [self startAnimating:1];
-    [[[UIApplication sharedApplication] keyWindow] addSubview:self];
+    UIWindow *currentWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
+    [currentWindow addSubview:self];
     [UIView animateWithDuration:0.5 animations:^{
         self.alpha = 1.0;
     } completion:^(BOOL finished) {

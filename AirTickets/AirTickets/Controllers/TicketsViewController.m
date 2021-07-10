@@ -178,7 +178,7 @@
 -(NSArray *)ticketsFromMapPrices {
     NSMutableArray *tickets = [NSMutableArray new];
     NSArray *favouritePrices = [[CoreDataHelper sharedInstance] favouriteMapPrices];
-    
+
     for (FavouriteMapPrice *price in favouritePrices) {
         Ticket *ticket = [Ticket new];
         ticket.from = price.origin;
