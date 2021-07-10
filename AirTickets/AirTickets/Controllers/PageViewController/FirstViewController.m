@@ -47,7 +47,7 @@
     _nextButton.layer.cornerRadius = 15;
     _nextButton.clipsToBounds = YES;
     _nextButton.alpha = 0.5;
-    _nextButton.frame = CGRectMake(self.view.bounds.size.width - 120.0, self.view.bounds.size.height - 40.0, 100.0, 30.0);
+    _nextButton.frame = CGRectMake(self.view.bounds.size.width - 120.0,  60, 100.0, 30.0);
     [_nextButton addTarget:self action:@selector(nextButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
     [_nextButton setTintColor:[UIColor systemBlueColor]];
     [self updateButtonWithIndex:0];
