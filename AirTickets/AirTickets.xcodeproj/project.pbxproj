@@ -148,7 +148,6 @@
 		4DB587962684AD95005CC484 /* AirTickets */ = {
 			isa = PBXGroup;
 			children = (
-				4DD03065269A0BDC003307DB /* SupportingFiles */,
 				4DC287BF26919D3800DA7115 /* CoreData */,
 				4DB587D32684B122005CC484 /* JSONs */,
 				4DB587CC2684B090005CC484 /* Services */,
@@ -162,6 +161,7 @@
 				4DB587A52684AD96005CC484 /* LaunchScreen.storyboard */,
 				4DB587A82684AD96005CC484 /* Info.plist */,
 				4DB587A92684AD96005CC484 /* main.m */,
+				4DD03065269A0BDC003307DB /* SupportingFiles */,
 			);
 			path = AirTickets;
 			sourceTree = "<group>";
