@@ -20,8 +20,9 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.viewControllers = [self createViewControllers];
-        self.tabBar.backgroundColor = [UIColor whiteColor];
-        self.tabBar.tintColor = [UIColor systemBlueColor];
+        self.tabBar.barTintColor = [UIColor systemBlueColor];
+        self.tabBar.tintColor = [UIColor whiteColor];
+        self.tabBar.unselectedItemTintColor = [UIColor lightGrayColor];
     }
     return self;
 }
