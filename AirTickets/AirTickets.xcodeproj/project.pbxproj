@@ -28,6 +28,7 @@
 		4DC0D68D269988B800658456 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0D68C269988B800658456 /* ProgressView.m */; };
 		4DC0D6902699900900658456 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0D68F2699900900658456 /* ContentViewController.m */; };
 		4DC0D6942699912000658456 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0D6932699912000658456 /* FirstViewController.m */; };
+		4DC0D6972699A4F400658456 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0D6962699A4F400658456 /* NotificationCenter.m */; };
 		4DC2879A26884B3300DA7115 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC2879926884B3300DA7115 /* LocationService.m */; };
 		4DC287A226884FC000DA7115 /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287A126884FC000DA7115 /* MapPrice.m */; };
 		4DC287A72688560D00DA7115 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287A62688560D00DA7115 /* MapViewController.m */; };
@@ -80,6 +81,8 @@
 		4DC0D68F2699900900658456 /* ContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		4DC0D6922699912000658456 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		4DC0D6932699912000658456 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		4DC0D6952699A4F400658456 /* NotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
+		4DC0D6962699A4F400658456 /* NotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
 		4DC2879826884B3300DA7115 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
 		4DC2879926884B3300DA7115 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
 		4DC287A026884FC000DA7115 /* MapPrice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapPrice.h; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				4DB587DE2684B2FA005CC484 /* APIManager.m */,
 				4DC2879826884B3300DA7115 /* LocationService.h */,
 				4DC2879926884B3300DA7115 /* LocationService.m */,
+				4DC0D6952699A4F400658456 /* NotificationCenter.h */,
+				4DC0D6962699A4F400658456 /* NotificationCenter.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 				4DB587C52684AF39005CC484 /* MainViewController.m in Sources */,
 				4DC287A226884FC000DA7115 /* MapPrice.m in Sources */,
 				4DB587AA2684AD96005CC484 /* main.m in Sources */,
+				4DC0D6972699A4F400658456 /* NotificationCenter.m in Sources */,
 				4DC287A72688560D00DA7115 /* MapViewController.m in Sources */,
 				4DB587E32684BA14005CC484 /* Ticket.m in Sources */,
 				4DB587CF2684B0B2005CC484 /* DataManager.m in Sources */,
