@@ -8,6 +8,8 @@
 #import "MainViewController.h"
 #import "TicketsViewController.h"
 #import "APIManager.h"
+#import "ProgressView.h"
+#import "FirstViewController.h"
 
 @interface MainViewController ()
 
@@ -32,6 +34,12 @@
     [self createButtons];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataLoadedSuccessfully) name:kDataManagerLoadDataDidComplete object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self presentFirstViewControllerIfNeeded];
 }
 
 - (void)placeButtonDidTap:(UIButton *)sender {
@@ -111,7 +119,7 @@
     [_searchButton setTitle:@"Найти" forState:UIControlStateNormal];
     _searchButton.tintColor = [UIColor whiteColor];
     _searchButton.frame = CGRectMake(30.0, CGRectGetMaxY(_placeContainerView.frame) + 30, [UIScreen mainScreen].bounds.size.width - 60.0, 60.0);
-    _searchButton.backgroundColor = [UIColor blackColor];
+    _searchButton.backgroundColor = [UIColor systemBlueColor];
     _searchButton.layer.cornerRadius = 8.0;
     _searchButton.titleLabel.font = [UIFont systemFontOfSize:20.0 weight:UIFontWeightBold];
     [_searchButton addTarget:self action:@selector(searchButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
@@ -125,16 +133,37 @@
 }
 
 - (void)searchButtonDidTap:(UIButton *)sender {
-    [[APIManager sharedInstance] ticketsWithRequest:_searchRequest withCompletion:^(NSArray *tickets) {
-        if (tickets.count > 0) {
-            TicketsViewController *ticketsViewController = [[TicketsViewController alloc] initWithTickets:tickets];
-            [self.navigationController showViewController:ticketsViewController sender:self];
-        } else {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Увы!" message:@"По данному направлению билетов не найдено" preferredStyle: UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:@"Закрыть" style:(UIAlertActionStyleDefault) handler:nil]];
-            [self presentViewController:alertController animated:YES completion:nil];
-        }
-    }];
+    if (_searchRequest.origin && _searchRequest.destination) {
+        [[ProgressView sharedInstance] show:^{
+            [[APIManager sharedInstance] ticketsWithRequest:self->_searchRequest withCompletion:^(NSArray *tickets) {
+                [[ProgressView sharedInstance] dismiss:^{
+                    if (tickets.count > 0) {
+                        TicketsViewController *ticketsViewController = [[TicketsViewController alloc] initWithTickets:tickets];
+                        [self.navigationController showViewController:ticketsViewController sender:self];
+                    } else {
+                        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Увы!" message:@"По данному направлению билетов не найдено" preferredStyle: UIAlertControllerStyleAlert];
+                        [alertController addAction:[UIAlertAction actionWithTitle:@"Закрыть" style:(UIAlertActionStyleDefault) handler:nil]];
+                        [self presentViewController:alertController animated:YES completion:nil];
+                    }
+                }];
+            }];
+        }];
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Ошибка" message:@"Необходимо указать место отправления и место прибытия" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Закрыть" style:(UIAlertActionStyleDefault) handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
+
+- (void)presentFirstViewControllerIfNeeded {
+    BOOL isFirstStart = [[NSUserDefaults standardUserDefaults] boolForKey:@"first_start"];
+    if (!isFirstStart) {
+        FirstViewController *firstViewController = [[FirstViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+        firstViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        [self presentViewController:firstViewController animated:YES completion:nil];
+    }
+}
+
+
 
 @end

@@ -25,6 +25,9 @@
 		4DB587E32684BA14005CC484 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB587E22684BA14005CC484 /* Ticket.m */; };
 		4DB587E82684BE29005CC484 /* TicketTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB587E72684BE29005CC484 /* TicketTableViewCell.m */; };
 		4DB587EC2684BF44005CC484 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB587EB2684BF44005CC484 /* TicketsViewController.m */; };
+		4DC0D68D269988B800658456 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0D68C269988B800658456 /* ProgressView.m */; };
+		4DC0D6902699900900658456 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0D68F2699900900658456 /* ContentViewController.m */; };
+		4DC0D6942699912000658456 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0D6932699912000658456 /* FirstViewController.m */; };
 		4DC2879A26884B3300DA7115 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC2879926884B3300DA7115 /* LocationService.m */; };
 		4DC287A226884FC000DA7115 /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287A126884FC000DA7115 /* MapPrice.m */; };
 		4DC287A72688560D00DA7115 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC287A62688560D00DA7115 /* MapViewController.m */; };
@@ -71,6 +74,12 @@
 		4DB587E72684BE29005CC484 /* TicketTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketTableViewCell.m; sourceTree = "<group>"; };
 		4DB587EA2684BF44005CC484 /* TicketsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketsViewController.h; sourceTree = "<group>"; };
 		4DB587EB2684BF44005CC484 /* TicketsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketsViewController.m; sourceTree = "<group>"; };
+		4DC0D68B269988B800658456 /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		4DC0D68C269988B800658456 /* ProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
+		4DC0D68E2699900900658456 /* ContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		4DC0D68F2699900900658456 /* ContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		4DC0D6922699912000658456 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		4DC0D6932699912000658456 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		4DC2879826884B3300DA7115 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
 		4DC2879926884B3300DA7115 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
 		4DC287A026884FC000DA7115 /* MapPrice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapPrice.h; sourceTree = "<group>"; };
@@ -173,6 +182,8 @@
 		4DB587C22684AF10005CC484 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4DC0D691269990E900658456 /* PageViewController */,
+				4DC0D68A2699889A00658456 /* Views */,
 				4DB587E52684BE01005CC484 /* Cells */,
 				4DB587C32684AF39005CC484 /* MainViewController.h */,
 				4DB587C42684AF39005CC484 /* MainViewController.m */,
@@ -218,6 +229,26 @@
 				4DB587E72684BE29005CC484 /* TicketTableViewCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		4DC0D68A2699889A00658456 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4DC0D68B269988B800658456 /* ProgressView.h */,
+				4DC0D68C269988B800658456 /* ProgressView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4DC0D691269990E900658456 /* PageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4DC0D68E2699900900658456 /* ContentViewController.h */,
+				4DC0D68F2699900900658456 /* ContentViewController.m */,
+				4DC0D6922699912000658456 /* FirstViewController.h */,
+				4DC0D6932699912000658456 /* FirstViewController.m */,
+			);
+			path = PageViewController;
 			sourceTree = "<group>";
 		};
 		4DC287BF26919D3800DA7115 /* CoreData */ = {
@@ -385,6 +416,7 @@
 				4DB587E82684BE29005CC484 /* TicketTableViewCell.m in Sources */,
 				4DB587C02684AE5F005CC484 /* Airport.m in Sources */,
 				4DC287D32691A19A00DA7115 /* CoreDataHelper.m in Sources */,
+				4DC0D6942699912000658456 /* FirstViewController.m in Sources */,
 				4DC287FD2691E7D100DA7115 /* FavouriteMapPrice+CoreDataProperties.m in Sources */,
 				4DB587DF2684B2FA005CC484 /* APIManager.m in Sources */,
 				4DB587CA2684AF67005CC484 /* PlaceViewController.m in Sources */,
@@ -395,9 +427,11 @@
 				4DB587E32684BA14005CC484 /* Ticket.m in Sources */,
 				4DB587CF2684B0B2005CC484 /* DataManager.m in Sources */,
 				4DC287B026908E7500DA7115 /* TabBarController.m in Sources */,
+				4DC0D68D269988B800658456 /* ProgressView.m in Sources */,
 				4DC287FC2691E7D100DA7115 /* FavouriteMapPrice+CoreDataClass.m in Sources */,
 				4DC287C826919D8E00DA7115 /* DataModel.xcdatamodeld in Sources */,
 				4DC2879A26884B3300DA7115 /* LocationService.m in Sources */,
+				4DC0D6902699900900658456 /* ContentViewController.m in Sources */,
 				4DC287CE2691A14400DA7115 /* FavouriteTicket+CoreDataClass.m in Sources */,
 				4DB5879C2684AD95005CC484 /* SceneDelegate.m in Sources */,
 				4DC287CF2691A14400DA7115 /* FavouriteTicket+CoreDataProperties.m in Sources */,
