@@ -36,6 +36,10 @@
         
         _datePicker = [[UIDatePicker alloc] init];
         _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+        _datePicker.preferredDatePickerStyle = UIDatePickerStyleInline;
+        _datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru_RU"];
+        _datePicker.timeZone = [NSTimeZone localTimeZone];
+        
         _datePicker.minimumDate = [NSDate date];
         
         _dateTextField = [[UITextField alloc] initWithFrame:self.view.bounds];
@@ -193,16 +197,6 @@
         NSString *message = [NSString stringWithFormat:@"%@ - %@ за %ld руб.", notificationCell.ticket.from, notificationCell.ticket.to, (long)notificationCell.ticket.price];
 
         NSURL *imageURL;
-//        if (notificationCell. airlineLogoView.image) {
-//            NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:[NSString stringWithFormat:@"/%@.png", notificationCell.ticket.airline]];
-//            if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-//                UIImage *logo = notificationCell.airlineLogoView.image;
-//                NSData *pngData = UIImagePNGRepresentation(logo);
-//                [pngData writeToFile:path atomically:YES];
-//
-//            }
-//            imageURL = [NSURL fileURLWithPath:path];
-//        }
 
         Notification notification = NotificationMake(@"Напоминание о билете", message, _datePicker.date, imageURL);
         [[NotificationCenter sharedInstance] sendNotification:notification];
@@ -210,12 +204,12 @@
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Успешно" message:[NSString stringWithFormat:@"Уведомление будет отправлено - %@", _datePicker.date] preferredStyle:(UIAlertControllerStyleAlert)];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
         [alertController addAction:cancelAction];
+        [self->_dateTextField resignFirstResponder];
         [self presentViewController:alertController animated:YES completion:nil];
     }
     _datePicker.date = [NSDate date];
     notificationCell = nil;
     [self.view endEditing:YES];
 }
-
 
 @end
