@@ -39,6 +39,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCurrentLocation:) name:kLocationServiceDidUpdateCurrentLocation object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
+    self.tabBarController.tabBar.tintColor = [UIColor blackColor];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    self.tabBarController.tabBar.barTintColor = [UIColor systemBlueColor];
+    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

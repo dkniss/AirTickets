@@ -27,7 +27,7 @@
    
     [[DataManager sharedInstance] loadData];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor systemBlueColor];
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.title = @"Поиск авиабилетов";
     
@@ -88,28 +88,24 @@
 
 - (void)createButtons {
     _placeContainerView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 180.0, [UIScreen mainScreen].bounds.size.width - 40.0, 170.0)];
-    _placeContainerView.backgroundColor = [UIColor whiteColor];
-    _placeContainerView.layer.shadowColor = [[[UIColor blackColor] colorWithAlphaComponent:0.1] CGColor];
-    _placeContainerView.layer.shadowOffset = CGSizeZero;
-    _placeContainerView.layer.shadowRadius = 20.0;
-    _placeContainerView.layer.shadowOpacity = 1.0;
-    _placeContainerView.layer.cornerRadius = 6.0;
     
     _departureButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_departureButton setTitle:@"Откуда" forState: UIControlStateNormal];
-    _departureButton.tintColor = [UIColor blackColor];
+    _departureButton.tintColor = [UIColor systemBlueColor];
     _departureButton.frame = CGRectMake(10.0, 20.0, _placeContainerView.frame.size.width - 20.0, 60.0);
-    _departureButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.1];
-    _departureButton.layer.cornerRadius = 4.0;
+    _departureButton.backgroundColor = [UIColor whiteColor];
+    _departureButton.layer.cornerRadius = 20;
+    _departureButton.clipsToBounds = YES;
     [_departureButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
     [self.placeContainerView addSubview:_departureButton];
     
     _arrivalButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_arrivalButton setTitle:@"Куда" forState: UIControlStateNormal];
-    _arrivalButton.tintColor = [UIColor blackColor];
+    _arrivalButton.tintColor = [UIColor systemBlueColor];
     _arrivalButton.frame = CGRectMake(10.0, CGRectGetMaxY(_departureButton.frame) + 10.0, _placeContainerView.frame.size.width - 20.0, 60.0);
-    _arrivalButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.1];
-    _arrivalButton.layer.cornerRadius = 4.0;
+    _arrivalButton.backgroundColor = [UIColor whiteColor];
+    _arrivalButton.layer.cornerRadius = 20;
+    _arrivalButton.clipsToBounds = YES;
     [_arrivalButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
     [self.placeContainerView addSubview:_arrivalButton];
     
@@ -117,10 +113,11 @@
     
     _searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_searchButton setTitle:@"Найти" forState:UIControlStateNormal];
-    _searchButton.tintColor = [UIColor whiteColor];
+    _searchButton.tintColor = [UIColor systemBlueColor];
+    _searchButton.backgroundColor = [UIColor whiteColor];
+    _searchButton.layer.cornerRadius = 20;
+    _searchButton.clipsToBounds = YES;
     _searchButton.frame = CGRectMake(30.0, CGRectGetMaxY(_placeContainerView.frame) + 30, [UIScreen mainScreen].bounds.size.width - 60.0, 60.0);
-    _searchButton.backgroundColor = [UIColor systemBlueColor];
-    _searchButton.layer.cornerRadius = 8.0;
     _searchButton.titleLabel.font = [UIFont systemFontOfSize:20.0 weight:UIFontWeightBold];
     [_searchButton addTarget:self action:@selector(searchButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_searchButton];

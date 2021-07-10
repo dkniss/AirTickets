@@ -49,6 +49,8 @@
 
 - (void)createTableView {
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    _tableView.backgroundColor = [UIColor systemBlueColor];
+    _tableView.separatorColor = [UIColor whiteColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
@@ -114,7 +116,8 @@
         cell.textLabel.text = airport.name;
         cell.detailTextLabel.text = airport.code;
     }
-    
+    cell.backgroundColor =  [UIColor systemBlueColor];
+    cell.alpha = 0.5;
     return cell;
 }
 
