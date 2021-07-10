@@ -194,6 +194,11 @@
 
 - (void)doneButtonDidTap:(UIBarButtonItem *)sender {
     if (_datePicker.date && notificationCell) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd' 'HH:mm:ss"];
+        NSString *localDateString = [dateFormatter stringFromDate:_datePicker.date];
+        
         NSString *message = [NSString stringWithFormat:@"%@ - %@ за %ld руб.", notificationCell.ticket.from, notificationCell.ticket.to, (long)notificationCell.ticket.price];
 
         NSURL *imageURL;
@@ -201,7 +206,7 @@
         Notification notification = NotificationMake(@"Напоминание о билете", message, _datePicker.date, imageURL);
         [[NotificationCenter sharedInstance] sendNotification:notification];
 
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Успешно" message:[NSString stringWithFormat:@"Уведомление будет отправлено - %@", _datePicker.date] preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Успешно" message:[NSString stringWithFormat:@"Уведомление будет отправлено - %@", localDateString] preferredStyle:(UIAlertControllerStyleAlert)];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
         [alertController addAction:cancelAction];
         [self->_dateTextField resignFirstResponder];
