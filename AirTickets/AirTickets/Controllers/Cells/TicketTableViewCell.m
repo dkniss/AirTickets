@@ -31,12 +31,9 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.contentView.layer.shadowColor = [[[UIColor blackColor] colorWithAlphaComponent:0.2] CGColor];
-        self.contentView.layer.shadowOffset = CGSizeMake(1.0, 1.0);
-        self.contentView.layer.shadowRadius = 10.0;
-        self.contentView.layer.shadowOpacity = 1.0;
-        self.contentView.layer.cornerRadius = 6.0;
         self.contentView.backgroundColor = [UIColor whiteColor];
+        self.layer.cornerRadius = 20;
+        self.clipsToBounds = YES;
         
         _priceLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _priceLabel.font = [UIFont systemFontOfSize:24.0 weight:UIFontWeightBold];
