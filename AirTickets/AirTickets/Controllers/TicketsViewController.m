@@ -9,6 +9,7 @@
 #import "TicketTableViewCell.h"
 #import "CoreDataHelper.h"
 #import "NotificationCenter.h"
+#import "UIColor+UIColor_Ext.h"
 
 #define TicketCellReuseIdentifier @"TicketCellIdentifier"
 
@@ -32,7 +33,7 @@
         _tickets = tickets;
         self.title = @"Билеты";
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.tableView.backgroundColor = [UIColor systemBlueColor];
+        self.tableView.backgroundColor = [UIColor lightBlueColor];
         [self.tableView registerClass:[TicketTableViewCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
         
         _datePicker = [[UIDatePicker alloc] init];
@@ -68,7 +69,7 @@
         self.tickets = [NSArray new];
         self.title = @"Избранное";
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.tableView.backgroundColor = [UIColor systemBlueColor];
+        self.tableView.backgroundColor = [UIColor lightBlueColor];
         [self.tableView registerClass:[TicketTableViewCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
     }
     return self;

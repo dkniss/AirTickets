@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0DCA29269AD9DF0016D81C /* UIColor+UIColor_Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0DCA28269AD9DF0016D81C /* UIColor+UIColor_Ext.m */; };
 		4DB587992684AD95005CC484 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB587982684AD95005CC484 /* AppDelegate.m */; };
 		4DB5879C2684AD95005CC484 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5879B2684AD95005CC484 /* SceneDelegate.m */; };
 		4DB587A42684AD96005CC484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DB587A32684AD96005CC484 /* Assets.xcassets */; };
@@ -43,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D0DCA27269AD9DF0016D81C /* UIColor+UIColor_Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_Ext.h"; sourceTree = "<group>"; };
+		4D0DCA28269AD9DF0016D81C /* UIColor+UIColor_Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_Ext.m"; sourceTree = "<group>"; };
 		4DB587942684AD95005CC484 /* AirTickets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirTickets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DB587972684AD95005CC484 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4DB587982684AD95005CC484 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -127,6 +130,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4D0DCA26269AD91D0016D81C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4D0DCA27269AD9DF0016D81C /* UIColor+UIColor_Ext.h */,
+				4D0DCA28269AD9DF0016D81C /* UIColor+UIColor_Ext.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4DB5878B2684AD95005CC484 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +160,7 @@
 		4DB587962684AD95005CC484 /* AirTickets */ = {
 			isa = PBXGroup;
 			children = (
+				4D0DCA26269AD91D0016D81C /* Extensions */,
 				4DC287BF26919D3800DA7115 /* CoreData */,
 				4DB587D32684B122005CC484 /* JSONs */,
 				4DB587CC2684B090005CC484 /* Services */,
@@ -443,6 +456,7 @@
 				4DB587CA2684AF67005CC484 /* PlaceViewController.m in Sources */,
 				4DB587C52684AF39005CC484 /* MainViewController.m in Sources */,
 				4DC287A226884FC000DA7115 /* MapPrice.m in Sources */,
+				4D0DCA29269AD9DF0016D81C /* UIColor+UIColor_Ext.m in Sources */,
 				4DB587AA2684AD96005CC484 /* main.m in Sources */,
 				4DC0D6972699A4F400658456 /* NotificationCenter.m in Sources */,
 				4DC287A72688560D00DA7115 /* MapViewController.m in Sources */,

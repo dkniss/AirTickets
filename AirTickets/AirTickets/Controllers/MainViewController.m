@@ -10,6 +10,7 @@
 #import "APIManager.h"
 #import "ProgressView.h"
 #import "FirstViewController.h"
+#import "UIColor+UIColor_Ext.h"
 
 @interface MainViewController ()
 
@@ -26,8 +27,7 @@
     [super viewDidLoad];
    
     [[DataManager sharedInstance] loadData];
-    
-    self.view.backgroundColor = [UIColor systemBlueColor];
+    self.view.backgroundColor = [UIColor lightBlueColor];
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.title = @"Поиск авиабилетов";
     

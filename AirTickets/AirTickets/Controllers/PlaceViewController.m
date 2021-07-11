@@ -6,6 +6,7 @@
 //
 
 #import "PlaceViewController.h"
+#import "UIColor+UIColor_Ext.h"
 
 #define reuseIdentifierCellIdentifier @"CellIdentifier"
 
@@ -49,7 +50,7 @@
 
 - (void)createTableView {
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    _tableView.backgroundColor = [UIColor systemBlueColor];
+    _tableView.backgroundColor = [UIColor lightBlueColor];
     _tableView.separatorColor = [UIColor whiteColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -116,7 +117,7 @@
         cell.textLabel.text = airport.name;
         cell.detailTextLabel.text = airport.code;
     }
-    cell.backgroundColor =  [UIColor systemBlueColor];
+    cell.backgroundColor =  [UIColor lightBlueColor];
     cell.alpha = 0.5;
     return cell;
 }

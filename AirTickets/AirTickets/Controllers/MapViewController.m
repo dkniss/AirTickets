@@ -12,6 +12,7 @@
 #import "MapPrice.h"
 #import <CoreLocation/CoreLocation.h>
 #import "CoreDataHelper.h"
+#import "UIColor+UIColor_Ext.h"
 
 @interface MapViewController ()
 
@@ -41,12 +42,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
-    self.tabBarController.tabBar.tintColor = [UIColor blackColor];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    self.tabBarController.tabBar.barTintColor = [UIColor systemBlueColor];
-    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
+    self.tabBarController.tabBar.barTintColor = [UIColor lightBlueColor];
 }
 
 - (void)dealloc {
