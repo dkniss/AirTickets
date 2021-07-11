@@ -84,6 +84,7 @@
     
     if (isFavourites) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"arrow.up.arrow.down.circle"] style:UIBarButtonItemStyleDone target:self action:@selector(sortTickets)];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
         self.navigationController.navigationBar.prefersLargeTitles = YES;
         
         [self createSegmentedControl];
