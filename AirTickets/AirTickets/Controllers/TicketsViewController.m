@@ -94,10 +94,6 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return _tickets.count;
-//}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return _tickets.count;
 }
@@ -105,8 +101,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TicketTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TicketCellReuseIdentifier forIndexPath:indexPath];
@@ -131,7 +125,6 @@
     UIView *headerView = [UIView new];
     [headerView setBackgroundColor:[UIColor clearColor]];
     return headerView;
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
