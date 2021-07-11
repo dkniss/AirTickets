@@ -7,6 +7,7 @@
 
 #import "FirstViewController.h"
 #import "ContentViewController.h"
+#import "UIColor+UIColor_Ext.h"
 
 #define CONTENT_COUNT 4
 
@@ -26,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = UIColor.systemBlueColor;
+    self.view.backgroundColor = UIColor.lightBlueColor;
     [self createContentDataArray];
     
     self.dataSource = self;

@@ -6,6 +6,7 @@
 //
 
 #import "ProgressView.h"
+#import "UIColor+UIColor_Ext.h"
 
 @interface ProgressView ()
 @end
@@ -26,7 +27,7 @@
 }
 
 - (void)setup {
-    self.backgroundColor = [UIColor systemBlueColor];
+    self.backgroundColor = [UIColor lightBlueColor];
     [self createPlanes];
 }
 

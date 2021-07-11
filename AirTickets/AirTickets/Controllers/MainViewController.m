@@ -10,6 +10,7 @@
 #import "APIManager.h"
 #import "ProgressView.h"
 #import "FirstViewController.h"
+#import "UIColor+UIColor_Ext.h"
 
 @interface MainViewController ()
 
@@ -26,8 +27,7 @@
     [super viewDidLoad];
    
     [[DataManager sharedInstance] loadData];
-    
-    self.view.backgroundColor = [UIColor systemBlueColor];
+    self.view.backgroundColor = [UIColor lightBlueColor];
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.title = @"Поиск авиабилетов";
     
@@ -92,6 +92,7 @@
     _departureButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_departureButton setTitle:@"Откуда" forState: UIControlStateNormal];
     _departureButton.tintColor = [UIColor systemBlueColor];
+    _departureButton.titleLabel.font = [UIFont systemFontOfSize:18];
     _departureButton.frame = CGRectMake(10.0, 20.0, _placeContainerView.frame.size.width - 20.0, 60.0);
     _departureButton.backgroundColor = [UIColor whiteColor];
     _departureButton.layer.cornerRadius = 20;
@@ -102,6 +103,7 @@
     _arrivalButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_arrivalButton setTitle:@"Куда" forState: UIControlStateNormal];
     _arrivalButton.tintColor = [UIColor systemBlueColor];
+    _arrivalButton.titleLabel.font = [UIFont systemFontOfSize:18];
     _arrivalButton.frame = CGRectMake(10.0, CGRectGetMaxY(_departureButton.frame) + 10.0, _placeContainerView.frame.size.width - 20.0, 60.0);
     _arrivalButton.backgroundColor = [UIColor whiteColor];
     _arrivalButton.layer.cornerRadius = 20;

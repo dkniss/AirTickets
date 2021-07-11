@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "MapViewController.h"
 #import "TicketsViewController.h"
+#import "UIColor+UIColor_Ext.h"
 
 @interface TabBarController ()
 
@@ -20,8 +21,8 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.viewControllers = [self createViewControllers];
-        self.tabBar.barTintColor = [UIColor systemBlueColor];
-        self.tabBar.tintColor = [UIColor whiteColor];
+        self.tabBar.barTintColor = [UIColor lightBlueColor];
+        self.tabBar.tintColor = [UIColor blackColor];
         self.tabBar.unselectedItemTintColor = [UIColor lightGrayColor];
     }
     return self;
