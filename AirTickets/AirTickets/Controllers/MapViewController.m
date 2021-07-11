@@ -12,6 +12,7 @@
 #import "MapPrice.h"
 #import <CoreLocation/CoreLocation.h>
 #import "CoreDataHelper.h"
+#import "UIColor+UIColor_Ext.h"
 
 @interface MapViewController ()
 
@@ -37,6 +38,14 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataLoadedSuccessfully) name:kDataManagerLoadDataDidComplete object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCurrentLocation:) name:kLocationServiceDidUpdateCurrentLocation object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    self.tabBarController.tabBar.barTintColor = [UIColor lightBlueColor];
 }
 
 - (void)dealloc {
