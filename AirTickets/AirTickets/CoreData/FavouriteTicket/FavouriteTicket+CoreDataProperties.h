@@ -8,7 +8,6 @@
 
 #import "FavouriteTicket+CoreDataClass.h"
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FavouriteTicket (CoreDataProperties)

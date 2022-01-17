@@ -160,6 +160,7 @@
 		4DB587962684AD95005CC484 /* AirTickets */ = {
 			isa = PBXGroup;
 			children = (
+				7708387127956AF800D0FA0D /* CustomViews */,
 				4D0DCA26269AD91D0016D81C /* Extensions */,
 				4DC287BF26919D3800DA7115 /* CoreData */,
 				4DB587D32684B122005CC484 /* JSONs */,
@@ -174,7 +175,6 @@
 				4DB587A52684AD96005CC484 /* LaunchScreen.storyboard */,
 				4DB587A82684AD96005CC484 /* Info.plist */,
 				4DB587A92684AD96005CC484 /* main.m */,
-				4DD03065269A0BDC003307DB /* SupportingFiles */,
 			);
 			path = AirTickets;
 			sourceTree = "<group>";
@@ -199,19 +199,13 @@
 		4DB587C22684AF10005CC484 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7708387027956AB400D0FA0D /* TabBar */,
+				7708386F27956AAC00D0FA0D /* Map */,
+				7708386E27956A9B00D0FA0D /* Tickets */,
+				7708386D27956A9100D0FA0D /* Place */,
+				7708386C27956A8900D0FA0D /* Main */,
 				4DC0D691269990E900658456 /* PageViewController */,
-				4DC0D68A2699889A00658456 /* Views */,
 				4DB587E52684BE01005CC484 /* Cells */,
-				4DB587C32684AF39005CC484 /* MainViewController.h */,
-				4DB587C42684AF39005CC484 /* MainViewController.m */,
-				4DB587C82684AF67005CC484 /* PlaceViewController.h */,
-				4DB587C92684AF67005CC484 /* PlaceViewController.m */,
-				4DB587EA2684BF44005CC484 /* TicketsViewController.h */,
-				4DB587EB2684BF44005CC484 /* TicketsViewController.m */,
-				4DC287A52688560D00DA7115 /* MapViewController.h */,
-				4DC287A62688560D00DA7115 /* MapViewController.m */,
-				4DC287AE26908E7500DA7115 /* TabBarController.h */,
-				4DC287AF26908E7500DA7115 /* TabBarController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -304,21 +298,6 @@
 			path = FavouriteMapPrice;
 			sourceTree = "<group>";
 		};
-		4DD03065269A0BDC003307DB /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				4DD03066269A0BEE003307DB /* Images */,
-			);
-			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		4DD03066269A0BEE003307DB /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		761A9ECBEE2388BB8598D4F8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +305,59 @@
 				8F975E02A7ABC8A81C05D57F /* Pods-AirTickets.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7708386C27956A8900D0FA0D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4DB587C32684AF39005CC484 /* MainViewController.h */,
+				4DB587C42684AF39005CC484 /* MainViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7708386D27956A9100D0FA0D /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				4DB587C82684AF67005CC484 /* PlaceViewController.h */,
+				4DB587C92684AF67005CC484 /* PlaceViewController.m */,
+			);
+			path = Place;
+			sourceTree = "<group>";
+		};
+		7708386E27956A9B00D0FA0D /* Tickets */ = {
+			isa = PBXGroup;
+			children = (
+				4DB587EA2684BF44005CC484 /* TicketsViewController.h */,
+				4DB587EB2684BF44005CC484 /* TicketsViewController.m */,
+			);
+			path = Tickets;
+			sourceTree = "<group>";
+		};
+		7708386F27956AAC00D0FA0D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				4DC287A52688560D00DA7115 /* MapViewController.h */,
+				4DC287A62688560D00DA7115 /* MapViewController.m */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		7708387027956AB400D0FA0D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				4DC287AE26908E7500DA7115 /* TabBarController.h */,
+				4DC287AF26908E7500DA7115 /* TabBarController.m */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		7708387127956AF800D0FA0D /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				4DC0D68A2699889A00658456 /* Views */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
