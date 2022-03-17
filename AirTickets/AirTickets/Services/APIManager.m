@@ -46,7 +46,7 @@
 - (void)load:(NSString *)urlString withCompletion:(void (^)(id _Nullable result))completion {
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:urlString] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         completion([NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil]);
-    }] resume] ;
+    }] resume];
 }
 
 - (void)ticketsWithRequest:(SearchRequest)request withCompletion:(void (^)(NSArray *tickets))completion {
@@ -56,12 +56,14 @@
         if (response) {
             NSDictionary *json = [[response valueForKey:@"data"] valueForKey:request.destination];
             NSMutableArray *array = [NSMutableArray new];
-            for (NSString *key in json) {
-                NSDictionary *value = [json valueForKey: key];
-                Ticket *ticket = [[Ticket alloc] initWithDictionary:value];
-                ticket.from = request.origin;
-                ticket.to = request.destination;
-                [array addObject:ticket];
+            if (json != (id)[NSNull null]) {
+                for (NSString *key in json) {
+                    NSDictionary *value = [json valueForKey: key];
+                    Ticket *ticket = [[Ticket alloc] initWithDictionary:value];
+                    ticket.from = request.origin;
+                    ticket.to = request.destination;
+                    [array addObject:ticket];
+                }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 completion(array);
