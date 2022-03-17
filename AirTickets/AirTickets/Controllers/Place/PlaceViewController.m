@@ -67,6 +67,7 @@
 
 - (void)createSearchController {
     _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    _searchController.searchBar.searchTextField.backgroundColor = [UIColor whiteColor];
     _searchController.obscuresBackgroundDuringPresentation = NO;
     _searchController.searchResultsUpdater = self;
     _searchArray = [NSArray new];
